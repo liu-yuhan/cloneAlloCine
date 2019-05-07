@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserSpaceController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="title text-center">
+    <h1>User space</h1>
+  </div>
+  <div class="row">
+    <div class="profil my-3 col-3 offset-2 ">
+      <h3>profil</h3>
+      <p>username:{{app.user.name}}</p>
+      <p>email:{{app.user.email}} </p>
+      <p>password: **********</p>
+        <a href="{{path('user_edit',{'id':app.user.id})}}">
+            <button type="submit" name="button" class="btn btn-large btn-dark">Edit my profil</button>
+        </a>
+
+
+    </div>
+    <div class="movie col-6">
+        <h3>My movie_list: </h3>
+        <div class="my-3 border text-center ">
+          {% for movie_list in movie_lists %}
+          <div class="py-1">
+            <td>{{ movie_list.id }}</td>
+            <td>{{ movie_list.listName }}</td>
+            <button type="submit" name="button" method="post" value="movie_list.id">delete</button> <br>
+          </div>
+
+          {% endfor %}
+
+        </div>
+        <div class="row d-inline-block my-3">
+          <h5>add a new list</h5>
+          {{ form_start(form) }}
+              {{ form_widget(form) }}
+                <button class="btn btn-warning offset-1 ">{{ button_label|default('Add') }}</button>
+          {{ form_end(form) }}
+        </div>
+
+    </div>
+  </div>
+  <div class="my_favorite">
+      <h3 class="text-center" >My favorite Movies: </h3>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

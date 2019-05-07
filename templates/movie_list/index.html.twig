@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MovieList index{% endblock %}
+
+{% block body %}
+    <h1>MovieList index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>List_name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movie_list in movie_lists %}
+            <tr>
+                <td>{{ movie_list.id }}</td>
+                <td>{{ movie_list.listName }}</td>
+                <td>
+                    <a href="{{ path('movie_list_show', {'id': movie_list.id}) }}">show</a>
+                    <a href="{{ path('movie_list_edit', {'id': movie_list.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('movie_list_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-7 py-3">
+            <h4>Found movie with {{keyWord}} :</h4>
+            <div class="text">
+                {{result_info_title}}: <br>
+                {% for movie in title_movies %}
+                <p>
+                <a href={{path('movie_detail',{'id':movie.id})}}>{{movie.title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                release:{{movie.release_date}}
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-4 offset-1 py-3">
+          <h4>Found genre with {{keyWord}} : </h4>
+          {{found_notice_genre}} </br>
+          <a href="#"> click for more details</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

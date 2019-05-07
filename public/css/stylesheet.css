@@ -1,0 +1,29 @@
+*{
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+ul li {
+list-style-type: none;
+}
+
+body{
+  background-color:#2F4F4F;
+  /*font-family: 'Fascinate Inline';*/
+  color: white;
+}
+
+
+.center{
+  text-align: center;
+  position: center;
+  margin: auto 0;
+  margin-top: 80px;
+}
+
+/*#movie{
+  background-color:#424242;
+  text-decoration-line: inherit;
+}
+*/
+.carousel-inner{width:50%;}
+.carousel-caption {color:  	#DC143C}

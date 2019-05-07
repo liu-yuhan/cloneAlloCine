@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Discover movies{% endblock %}
+
+{% block body %}
+
+<div class="mx-1 mt-1 row">
+{% block discover %}
+      <div class="discover ml-3 col-8 border d-inline-block ">
+        <div class="row  mt-3 ">
+          <h4 class=" col-5">Discover Movies:</h4>
+          <a href class="offset-5 "><button type="button" class="btn btn-info ">More...</button></a>
+        </div>
+        <div class="row mt-5">
+          {% for discover in discover %}
+          <div class="px-auto mx-auto text-center">
+            <ul >
+              <li><img src="http://image.tmdb.org/t/p/w185_and_h278_bestv2{{discover.poster_path}}" alt="poster_{{discover.title}}"> </li>
+              <li class="mt-7"> <h5>{{discover.title}}</h5> </li>
+              <li><h5>{{discover.vote_average}}</h5> </li>
+            </ul>
+            </div>
+            {% endfor %}
+        </div>
+  </div>
+{% endblock %}
+{% endblock %}
